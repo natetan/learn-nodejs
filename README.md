@@ -57,6 +57,33 @@ var server = http.createServer(function(req, res) {
 server.listen(3000);
 ```
 
+### Basic js for Node
+
+#### JavaScript Objects
+```JavaScript
+var hero = (
+  name: 'Percy',
+  age: 16,
+  heritage: 'Greek'
+);
+
+console.log(hero.name); // Percy
+console.log(hero); // { name: 'Percy', age: 16, heritage: 'Greek' }
+```
+
+#### Anonymous Functions
+```JavaScript
+var printSomething = function() {
+  console.log('Welcome to the Isles of the Blest');
+};
+
+// Passing them into parameters
+
+setTimeout(function() {
+  console.log('This message appeared in 3 seconds');
+}, 3000);
+```
+
 ### Using Expressjs  
 Expressjs loads your entire web server/application in memory
 
