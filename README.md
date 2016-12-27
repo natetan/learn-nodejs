@@ -84,6 +84,51 @@ setTimeout(function() {
 }, 3000);
 ```
 
+### Handling requests concurrently
+- Handle other requests while waiting for a response
+
+```JavaScript
+/*
+  This simulates multiple queries to a server that has a response time of 3 seconds
+*/
+
+function makeRequest(requestNumber) {
+  console.log('Request number: ' + requestNumber);
+  handleRequest(function() {
+    console.log('Request ' + requestNumber + ' finished');
+  });
+}
+
+// Simulate a server response time of 3 seconds
+// Instead of handling a request, waiting for 3 seconds, then doing another, 
+// it handles more requests while waiting for the server to respond
+// When the request is done, it does the callback
+function handleRequest(callback) {
+  setTimeout(callback, 3000);
+}
+
+for(var i = 1; i <= 5; i++) {
+  makeRequest(i);
+}
+
+/* 
+  Output (node app.js)
+
+  Request number: 1
+  Request number: 2
+  Request number: 3
+  Request number: 4
+  Request number: 5
+  Request 1 finished
+  Request 2 finished
+  Request 3 finished
+  Request 4 finished
+  Request 5 finished
+/*
+
+
+```
+
 ### Using Expressjs  
 Expressjs loads your entire web server/application in memory
 
