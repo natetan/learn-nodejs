@@ -84,6 +84,34 @@ setTimeout(function() {
 }, 3000);
 ```
 
+#### Object References
+- Everything is a reference
+```JavaScript
+var Yulong = (
+  age: 21,
+  gender: 'male'
+);
+
+var someoneElse = Yulong;
+console.log(Yulong.age); // 21
+console.log(someoneElse.age); // 21
+
+// someoneElse is not a copy of Yulong, but a reference, so it changes Yulong's age 
+someoneElse.age = 16;
+console.log(Yulong.age); // 16
+```
+
+#### Equality
+- == and ===
+
+```JavaScript
+// == compares only values
+console.log(13 == '13'); // true
+
+// === compares value and type
+console.log(13 ===  '13'); // false
+```
+
 ### Handling requests concurrently
 - Handle other requests while waiting for a response
 
