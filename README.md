@@ -112,6 +112,57 @@ console.log(13 == '13'); // true
 console.log(13 ===  '13'); // false
 ```
 
+#### Objects and Prototype
+```JavaScript
+// this keyword refers to whatever is calling it (User)
+function User(name) {
+  this.name = name;
+  this.balance = 100;
+  this.transfer = function(user, amount) {
+    if (amount > 0 && amount <= this.balance) {
+      user.balance += amount;
+      this.balance -= amount;
+      console.log(this.name + ' gave ' + amount + ' to ' + user.name);
+    }
+  };
+}
+
+var Percy = new User('Percy');
+var Annabeth = new User('Annabeth');
+console.log('Percy balance: ' + Percy.balance); // 100
+console.log('Annabeth balance: ' + Annabeth.balance); // 100
+Percy.transfer(Annabeth, 10);
+console.log('Percy balance: ' + Percy.balance); // 90
+console.log('Annabeth balance: ' + Annabeth.balance); // 110
+
+// Prototype can add another function or field/property to an object
+User.prototype.credit = 'good';
+User.prototype.steal = function(user, amount) {
+  if (amount <= user.balance) {
+    this.balance += amount;
+    user.balance -= amount;
+    console.log(this.name + ' just stole ' + amount + ' from ' + user.name);
+  }
+};
+
+Percy.steal(Annabeth, 10);
+console.log('Percy balance: ' + Percy.balance);
+console.log('Annabeth balance: ' + Annabeth.balance);
+
+/* 
+  Final Output
+
+  Percy balance: 100
+  Annabeth balance: 100
+  Percy gave 10 to Annabeth
+  Percy balance: 90
+  Annabeth balance: 110
+  Percy just stole 10 from Annabeth
+  Percy balance: 100
+  Annabeth balance: 100
+*/
+```
+
 ### Handling requests concurrently
 - Handle other requests while waiting for a response
 
