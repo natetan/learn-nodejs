@@ -1,4 +1,9 @@
 var Bank = require('./Bank');
-var account = Bank.createBankAccount('Yulong', 0, 500);
-console.log(account);
-console.log(account.balance);
+let per = Bank.createBankAccount('Percy', 0, 500);
+let ann = Bank.createBankAccount('Annabeth', 1, 1000);
+console.log(per.getBalance());
+console.log('Percy balance: ' + per.balance);
+console.log('Annabeth balance: ' + ann.balance);
+per.transfer(ann, 100);
+console.log('Percy balance: ' + per.balance);
+console.log('Annabeth balance: ' + ann.balance);
