@@ -7,3 +7,6 @@ console.log('Annabeth balance: ' + ann.balance);
 per.transfer(ann, 100);
 console.log('Percy balance: ' + per.balance);
 console.log('Annabeth balance: ' + ann.balance);
+per.deposit(300);
+console.log('Percy balance: ' + per.balance);
+console.log('Percy transactions: ' + per.getTransactions());
