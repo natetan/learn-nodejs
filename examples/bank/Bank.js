@@ -20,12 +20,14 @@ function Bank(name, id, deposit) {
     if (amount > 0) {
       this.balance += amount;
       this.transactions++;
+      console.log(amount + ' was deposited to ' + this.name + '\'s account');
     }
   };
   this.withdraw = function(amount) {
     if (amount > 0 && amount <= this.balance) {
       this.balance -= amount;
       this.transactions++;
+      console.log(amount + ' was withdrawn from ' + this.name + '\'s account');
     }
   };
   this.transfer = function(bank, amount) {
