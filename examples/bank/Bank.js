@@ -40,6 +40,7 @@ function Bank(name, id, deposit) {
       }
       this.transactions++;
       bank.transactions++;
+      console.log(this.name + ' transfered ' + amount + ' to ' + bank.name);
     }
   };
 }
