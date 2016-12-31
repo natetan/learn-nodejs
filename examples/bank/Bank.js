@@ -1,8 +1,6 @@
-function Bank(name, id) {
-  return new Bank(name, id, 0);
-}
-
-function Bank(name, id, deposit) {
+// deposit's default value is 0 if it is not defined
+// this acts like a second constructor with less arguments
+function Bank(name, id, deposit = 0) {
   this.name = name;
   this.id = id;
   this.balance = deposit;
