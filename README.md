@@ -204,8 +204,41 @@ for(var i = 1; i <= 5; i++) {
   Request 4 finished
   Request 5 finished
 /*
+```
 
+### Core modules
+- fs
+- path
+- http
 
+#### fs (file system)
+```JavaScript
+let fs = require('fs');
+
+var createMessage = function(fileName, content) {
+  fs.writeFileSync(fileName, content);
+  console.log(fileName + ' was created with content: ' + content);
+}
+
+// test.txt was created in the current directory
+createMessage('test.txt', 'i just created this file with node');
+```
+
+#### path
+```JavaScript
+let path = require('path');
+
+let webs = '~/dev///webs/node/learn-nodejs/examples/bank/Bank.js'; // BAD path
+console.log(path.normalize(webs)); // ~/dev/webs/node/learn-nodejs/examples/bank/Bank.js
+console.log(path.dirname(webs)); // ~/dev///webs/node/learn-nodejs/examples/bank
+console.log(path.basename(webs)); // Bank.js
+console.log(path.extname(webs)); // .js
+
+// this current directory
+console.log(__dirname); // /Users/yulong/dev/webs/node/learn-nodejs/core/path
+
+// this current file
+console.log(__filename); // /Users/yulong/dev/webs/node/learn-nodejs/core/path/app.js
 ```
 
 ### Using Expressjs  
