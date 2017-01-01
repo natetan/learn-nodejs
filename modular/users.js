@@ -22,5 +22,11 @@ function createPerson(name, age) {
   return new Person(name, age);
 }
 
-module.exports.print = printUsers;
-module.exports.createPerson = createPerson;
+// module.exports.print = printUsers;
+// module.exports.createPerson = createPerson;
+
+// When there are multiple things to export
+module.exports = {
+  print: printUsers,
+  createPerson: createPerson
+};
